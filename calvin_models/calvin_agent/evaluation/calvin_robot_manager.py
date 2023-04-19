@@ -339,7 +339,7 @@ class CALVINRobotManager():
         object_state = self.get_current_env_description()
 
         print("\nUse OpenAI planner")
-        openai.api_key = "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"
+        openai.api_key = "your-openai-api-key"
         engine = openai.Engine.list()
 
         API_identity_prompt= """
