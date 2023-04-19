@@ -139,3 +139,6 @@ checkpoints/HULC*
 dataset/calvin_debug_dataset/
 dataset/task*
 
+
+dataset/
+checkpoints/
