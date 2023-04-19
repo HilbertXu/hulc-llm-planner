@@ -1,4 +1,4 @@
-# HULC
+# HULC LLM Planner
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/mees/hulc.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mees/hulc/context:python)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/mees/hulc.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mees/hulc/alerts/)
@@ -17,22 +17,49 @@ We hope the code will be useful as a starting point for further research on lang
 ![](media/hulc_rollout.gif)
 ## Installation
 To begin, clone this repository locally
-```bash
-git clone --recurse-submodules https://github.com/mees/hulc.git
-export HULC_ROOT=$(pwd)/hulc
 
-```
 Install requirements:
+
 ```bash
-cd $HULC_ROOT
+cd path/to/hulc-llm-planner
+export HULC_ROOT=path/to/hulc-llm-planner
 conda create -n hulc_venv python=3.8  # or use virtualenv
 conda activate hulc_venv
 sh install.sh
 ```
 If you encounter problems installing pyhash, you might have to downgrade setuptools to a version below 58.
 
+if you encounter problems with ***undefined symbol: cublasLtGetStatusString, version libcublasLt.so.11***, you need to run following command:
+
+```
+pip uninstall nvidia_cublas_cu11
+```
+
+Then, install other requirements for openai and cohere:
+
+```
+pip install openai
+pip install cohere
+```
+
+
+
+### Run
+
+Please remember to change the paths.
+
+Before running following command, you need to download pre-trained models and dataset, please refer to corresponding section for details.
+
+```
+python hulc/evaluation/hulc_evaluate_policy_llm.py --dataset_path ./dataset/calvin_debug_dataset --train_folder ./checkpoints/HULC_D_D --checkpoint ./checkpoints/HULC_D_D/saved_models/HULC_D_D.ckpt --debug
+```
+
+
+
 ## Download
+
 ### CALVIN Dataset
+
 If you want to train on the [CALVIN](https://github.com/mees/calvin) dataset, choose a split with:
 ```bash
 cd $HULC_ROOT/dataset
