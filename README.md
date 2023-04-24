@@ -22,7 +22,7 @@ Install requirements:
 
 ```bash
 cd path/to/hulc-llm-planner
-export HULC_ROOT=path/to/hulc-llm-planner
+
 conda create -n hulc_venv python=3.8  # or use virtualenv
 conda activate hulc_venv
 sh install.sh
